@@ -17,12 +17,9 @@ defmodule SelfCheckout  do
   end
 
   defp add_totals(item, acc) do
-    IO.write("item: "); IO.inspect(item);
-    IO.write("acc: "); IO.inspect(acc);
     acc = Map.put(acc, :subtotal, acc[:subtotal] + (item[:price] * item[:qty]))
     acc = Map.put(acc, :tax, acc[:tax] + ((item[:price] * item[:qty]) * 0.055))
     acc = Map.put(acc, :total, acc[:total] + (item[:price] * item[:qty]) + ((item[:price] * item[:qty]) * 0.055))
-    IO.write("populated acc: "); IO.inspect(acc);
     acc
   end
 
